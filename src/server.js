@@ -7,6 +7,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('uploads'));
 
+//git check by anwar kabir 
+// this is victory day git 
+
 const mongodbPath = "mongodb+srv://flutterbackend:flutter11@cluster0.nno2rot.mongodb.net/flutterbackapi?retryWrites=true&w=majority"; 
 mongoose.connect(mongodbPath).then(function(){
 
