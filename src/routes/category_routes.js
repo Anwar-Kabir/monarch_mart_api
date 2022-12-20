@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const CategoryModel = require("./../models/category_model");
 
+//fetch all categories
 router.get("/", async function(req, res){
     await CategoryModel.find().exec(function(err, categories){
         if(err){
@@ -12,6 +13,7 @@ router.get("/", async function(req, res){
     });
 });
 
+//create category
 router.post("/", async function(req, res){
     const categoryData = req.body;
     const newCategory = new CategoryModel(categoryData);
@@ -25,6 +27,7 @@ router.post("/", async function(req, res){
 
 });
 
+//delete category
 router.delete("/", async function(req, res){
     const categoryid = req.body.categoryid;
     const result =  await CategoryModel.findOneAndDelete({categoryid:categoryid});
@@ -35,6 +38,7 @@ router.delete("/", async function(req, res){
     res.json({success:true, data:result});
 });
 
+//edit category with id
 router.put("/", async function(req, res){
     const categorydata = req.body;
     const categoryid = categorydata.categoryid;
