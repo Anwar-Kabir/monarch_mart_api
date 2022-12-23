@@ -5,13 +5,14 @@ const productSchema = new Schema({
     title: {type: String, required: true},
     category: {type: Schema.Types.ObjectId, ref: "Category"},
     description: {type:String, default: "" },
-    styles: {type: [{type: Schema.Types.ObjectId, ref: "productStyle"}], default :[]},
-    // price: {type:Number, required:true},
-    // images:{type: Array, default:[]},
-    createdon: {type: Date, default:Date.now}
+    styles: {type: [{type: Schema.Types.ObjectId, ref: "ProductStyle"}], default :[]},
+    /* styles: { type: Array, default :[]},
+    price: {type:Number, required:true},
+    images:{type: Array, default:[]}, */
+    addedon: {type: Date, default:Date.now}
 
 });
 
 const productModel = model("Product", productSchema);
 
-module.exports = productModel;
+module.exports = productModel;   

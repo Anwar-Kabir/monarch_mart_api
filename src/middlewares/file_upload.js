@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     },
 
     filename: function(req, file, cb){
-        const originalName = file.originalname;
+        const originalName =  file.originalname;
 
         const nameArray = originalName.split('.');
         const extension = nameArray[nameArray.length - 1];

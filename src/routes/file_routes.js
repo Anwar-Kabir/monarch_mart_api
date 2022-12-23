@@ -10,16 +10,16 @@ router.post("/single", upload.single("image"), async function(req, res){
         return;
     }
 
-    res.json({success: true, data: "http://localhost:5000" +  uploadedFile.fieldname});
+    res.json({success: true, data: "http://localhost:5000/" +uploadedFile.filename});
 
-});
-
-////multiple file upload
+}); 
+ 
+//multiple file upload
 router.post("/multiple", upload.array("images", 10), async function(req, res){
     const uploadedFiles =  req.files;
 
     if(!uploadedFiles || uploadedFiles.length ==0){
-        res.json({success: false, error:"files-not-found"});
+        res.json({success: false, error:"files-not-uploaded"});
         return;
     }
 

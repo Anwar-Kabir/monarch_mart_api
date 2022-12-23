@@ -8,13 +8,13 @@ router.get("/:id", async function(req, res) {
         if(err) {
             res.json({ success: false, error: err });
             return;
-        }
+        }     
 
         res.json({ success: true, data: docs });
     });
 });
 
-//create order order
+//create order order  
 router.post("/", async function(req, res) {
     const orderData = req.body;
     const newOrder = new OrderModel(orderData);

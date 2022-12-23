@@ -13,6 +13,19 @@ router.get("/", async function(req, res){
     });
 });
 
+
+//===> Get category by id,  
+router.get("/:categoryid", async function(req, res){
+    const categoryid =  req.params.categoryid;
+    const foundCategories = await CategoryModel.findOne({categoryid: categoryid});
+    if(!foundCategories){
+        res.json({success : false, error: "category-not-found"});
+        return;
+    }
+
+    res.json({success:true, data: foundCategories});
+});
+
 //create category
 router.post("/", async function(req, res){
     const categoryData = req.body;

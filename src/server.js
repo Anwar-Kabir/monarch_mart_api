@@ -24,6 +24,15 @@ mongoose.connect(mongodbPath).then(function(){
     const categoryRoutes = require('./routes/category_routes');
     app.use("/api/category", categoryRoutes);
 
+    const productRoutes =require('./routes/product_routes');
+    app.use("/api/product", productRoutes);
+
+    const fileRoutes =require('./routes/file_routes');
+    app.use("/api/file", fileRoutes);
+
+    const orderRoutes = require('./routes/order_routes');
+    app.use("/api/order", orderRoutes);
+
 });
 
 const PORT = process.env.PORT || 5000;;
