@@ -33,16 +33,18 @@ mongoose.connect(mongodbPath).then(function(){
     const orderRoutes = require('./routes/order_routes');
     app.use("/api/order", orderRoutes);
 
-});
-
-/* app.use((req,res,next)=>{
+     app.use((req,res,next)=>{
     res.status(404).json({message:"No route Found"})
 })
 
 //server error handle
 app.use((erro,req,res,next)=>{
     res.status(500).json({message:"500 Internal Server Error"})
-}) */
+}) 
+
+});
+
+
 
 const PORT = process.env.PORT || 5000;;
 app.listen(PORT, function(){
