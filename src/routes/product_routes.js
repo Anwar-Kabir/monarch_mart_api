@@ -3,7 +3,7 @@ const ProductModel = require("./../models/product_model");
 const productStyleModel = require("./../models/product_style_model")
 
 //fetch all product 
-router.get("/", async function(req, res){
+router.get("/getalldata", async function(req, res){
     await ProductModel.find().populate('category styles').exec(function(err, product){
         if(err){
             res.json({sucess: false, error: err});
